@@ -10,7 +10,7 @@ import {
 import { ChatItemType } from "../types/chatItem";
 import { User } from "../types/userType";
 import styles from "../styles/chat";
-import {ChatItem} from "./chatItem";
+import { ChatItem } from "./chatItem";
 
 type ChatPropsType = {
   user: User;
@@ -20,14 +20,22 @@ const Chat = (props: ChatPropsType) => {
   const { user } = props;
 
   const [message, setMessage] = useState<string>("");
-  const [messageList, setMessageList] = useState<ChatItemType[]>([]);
+  const [messageList, setMessageList] = useState<ChatItemType[]>([
+    {
+      id: Math.random().toString(36).substring(7),
+      message: 'loool',
+      by: 'powski',
+      image: '',
+      timestamp: Date.now(),
+    },
+  ]);
 
-  useEffect(() => console.log('user from chat:', user), []);
+  useEffect(() => console.log("user from chat:", user), []);
 
   const renderItem: ListRenderItem<ChatItemType> = ({ item }) => {
     console.log(item);
     // return <Text>hallo</Text>
-    return <ChatItem chatItem={item} key={item.id} />;
+    return <ChatItem chatItem={item} key={item.id} authenticatedUser={ user.username}/>;
   };
 
   const handleAddMessage = () => {
@@ -41,7 +49,7 @@ const Chat = (props: ChatPropsType) => {
         timestamp: Date.now(),
       },
     ]);
-    setMessage("")
+    setMessage("");
   };
   return (
     <View style={styles.chatContainer}>

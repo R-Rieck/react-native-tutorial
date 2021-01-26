@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
     chatContainer: { flex: 1, alignSelf: 'stretch' },
     messageContainer: {
-        marginTop: 25,
+        marginTop: 30,
         flex: 1,
         flexGrow: 1
     },
