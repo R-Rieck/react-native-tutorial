@@ -1,6 +1,6 @@
 import { Image } from "react-native";
 
-export interface ChatItem {
+export interface ChatItemType {
     id: string,
     image: string,
     message: string,

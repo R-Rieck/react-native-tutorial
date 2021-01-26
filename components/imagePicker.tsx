@@ -34,7 +34,7 @@ const ImageChooser = (props: ImageChooserPropsType) => {
       } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== "granted") {
         setIsPermitted(false);
-        console.log(
+        alert(
           "Sorry, but we need Media Library access to let you choose an Image"
         );
       } else {
@@ -42,8 +42,6 @@ const ImageChooser = (props: ImageChooserPropsType) => {
       }
     }
   };
-
-  useEffect(() => console.log("image choosen:", image), []);
 
   const pickImage = async () => {
     if (isPermitted) {
@@ -53,19 +51,15 @@ const ImageChooser = (props: ImageChooserPropsType) => {
         aspect: [1, 1],
       });
 
-      console.log(result);
-
       if (!result.cancelled) {
         var resizedImage = await ImageManipulator.manipulateAsync(
           result.uri,
           [{ resize: { width: 500, height: 500 } }],
           { base64: true }
         );
-        console.log(resizedImage);
-
-        var imageAsBase64 = resizedImage.uri ?? "";
-        setImage(imageAsBase64);
-        changeImage(image);
+        var imageUrl = resizedImage.uri ?? "";
+        setImage(imageUrl);
+        changeImage(imageUrl);
       }
     } else {
       await requestPermission();

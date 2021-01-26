@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Image, Text, TextInput, View } from "react-native";
 import styles from "../styles/loginScreen";
 import { User } from "../types/userType";
@@ -23,10 +23,8 @@ const LoginScreen = (props: LoginScreenPropsType) => {
           <TextInput
             style={styles.textInput}
             value={user.username}
-            onChange={(e: any) =>
-              setUser({ ...user, username: e.target.value })
-            }
-          ></TextInput>
+            onChangeText={(text: string) => setUser({...user, username: text})}
+          />
         </View>
 
         <ImageChooser
