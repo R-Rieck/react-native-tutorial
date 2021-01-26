@@ -8,7 +8,10 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.13.3",
+    "@types/expo": "^33.0.1",
     "expo": "~40.0.0",
+    "expo-app-loading": "^1.0.1",
     "expo-image-manipulator": "^9.0.0",
     "expo-image-picker": "^10.0.0",
     "expo-status-bar": "~1.0.3",
