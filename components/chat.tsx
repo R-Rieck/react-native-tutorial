@@ -30,11 +30,8 @@ const Chat = (props: ChatPropsType) => {
     },
   ]);
 
-  useEffect(() => console.log("user from chat:", user), []);
 
   const renderItem: ListRenderItem<ChatItemType> = ({ item }) => {
-    console.log(item);
-    // return <Text>hallo</Text>
     return <ChatItem chatItem={item} key={item.id} authenticatedUser={ user.username}/>;
   };
 
