@@ -1,0 +1,2 @@
+GET                                 /modelTest                              controllers.WebSocketController.modelTest
+GET                                 /ws                                     controllers.WebSocketController.ws

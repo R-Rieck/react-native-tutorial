@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SafeAreaView } from "react-native";
 import AppLoading from "expo-app-loading";
 import { User } from "./types/userType";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./styles/app";
 import LoginScreen from "./components/loginScreen";
 import Chat from "./components/chat";
@@ -17,7 +17,6 @@ export default function App() {
     await AsyncStorage.getItem(storageKey).then((userJson: string | null) => {
       if (userJson) {
         const user: User = JSON.parse(userJson);
-        console.log("user from AppTsx:", user);
         setUser(user);
       } else {
         setUser({ username: "", imageUrl: "" });
